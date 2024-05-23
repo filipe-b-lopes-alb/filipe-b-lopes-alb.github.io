@@ -1,0 +1,2553 @@
+---
+openapi: 3.0.3
+info:
+  title: Live!Urban
+  version: '2.0'
+  description: Live!Urban API
+paths:
+  "/api/accounts/":
+    get:
+      operationId: accounts_retrieve
+      description: |-
+        Method to return all Accounts
+        to which the admin has access
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: accounts_create
+      description: |-
+        Method to Create New Account
+        Note: Only admins or superadmins are allowed to create
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/accounts/{id}/":
+    get:
+      operationId: accounts_retrieve_2
+      description: Method to return one Account (by ID)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: accounts_destroy
+      description: DELETE Method to delete an account
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/adapter-configurators/":
+    get:
+      operationId: adapter_configurators_retrieve
+      tags:
+      - adapter-configurators
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/adapter-configurators/{id}/":
+    get:
+      operationId: adapter_configurators_retrieve_2
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - adapter-configurators
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/adapter-configurators/{id}/agg_values/":
+    get:
+      operationId: adapter_configurators_agg_values_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - adapter-configurators
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/adapter-configurators/{id}/devices/":
+    get:
+      operationId: adapter_configurators_devices_retrieve_2
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - adapter-configurators
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/adapter-configurators/{id}/download-data/":
+    get:
+      operationId: adapter_configurators_download_data_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - adapter-configurators
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/adapter-configurators/{id}/values/":
+    get:
+      operationId: adapter_configurators_values_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - adapter-configurators
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/adapter-configurators/devices/":
+    get:
+      operationId: adapter_configurators_devices_retrieve
+      tags:
+      - adapter-configurators
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/agg-values/":
+    get:
+      operationId: aveiro_agg_values_retrieve
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/agg-values/city/":
+    get:
+      operationId: aveiro_agg_values_city_retrieve
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/energy/consumption/":
+    get:
+      operationId: aveiro_energy_consumption_retrieve
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/energy/ip/":
+    get:
+      operationId: aveiro_energy_ip_retrieve
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/energy/ptd/":
+    get:
+      operationId: aveiro_energy_ptd_retrieve
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/iso/categories/":
+    get:
+      operationId: aveiro_iso_categories_retrieve
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: aveiro_iso_categories_update
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/iso/categories/{category}/":
+    get:
+      operationId: aveiro_iso_categories_retrieve_2
+      parameters:
+      - in: path
+        name: category
+        schema:
+          type: string
+          pattern: "^(.)+$"
+        required: true
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: aveiro_iso_categories_update_2
+      parameters:
+      - in: path
+        name: category
+        schema:
+          type: string
+          pattern: "^(.)+$"
+        required: true
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/iso/indicators/{id}/":
+    get:
+      operationId: aveiro_iso_indicators_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: aveiro_iso_indicators_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/iso/rank/":
+    get:
+      operationId: aveiro_iso_rank_retrieve
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/parish/":
+    get:
+      operationId: aveiro_parish_retrieve
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/aveiro/veolia/":
+    get:
+      operationId: aveiro_veolia_retrieve
+      tags:
+      - aveiro
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/charging/cards/":
+    get:
+      operationId: charging_cards_retrieve
+      tags:
+      - charging
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/charging/transactions/":
+    get:
+      operationId: charging_transactions_retrieve
+      tags:
+      - charging
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/clients/":
+    get:
+      operationId: clients_retrieve
+      description: Method to list all clients (avalaible for superadmin)
+      tags:
+      - clients
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: clients_create
+      description: Method to create client (avalaible for superadmin)
+      tags:
+      - clients
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/clients/{id}/":
+    get:
+      operationId: clients_retrieve_2
+      description: Method to show client info (avalaible for superadmin)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - clients
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: clients_update
+      description: 'Method to edit client: modules and name (avalaible for superadmin)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - clients
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: clients_destroy
+      description: Method to delete client (avalaible for superadmin)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - clients
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/clients/{id}/modules/":
+    get:
+      operationId: clients_modules_retrieve
+      description: Method to show client info (avalaible for superadmin)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - clients
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: clients_modules_update
+      description: 'Method to edit client: modules and name (avalaible for superadmin)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - clients
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: clients_modules_destroy
+      description: Method to delete client (avalaible for superadmin)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - clients
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/devices/":
+    get:
+      operationId: devices_retrieve
+      tags:
+      - devices
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/devices/{id}/":
+    get:
+      operationId: devices_retrieve_2
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - devices
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/funchal/events/":
+    get:
+      operationId: funchal_events_retrieve
+      description: Method to list all events
+      tags:
+      - funchal
+      responses:
+        '200':
+          description: No response body
+  "/api/funchal/events/{id}/":
+    get:
+      operationId: funchal_events_retrieve_2
+      description: Method to show event info
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - funchal
+      responses:
+        '200':
+          description: No response body
+  "/api/funchal/events/categories/":
+    get:
+      operationId: funchal_events_categories_retrieve
+      description: Method to list all Event' Categories - Public
+      tags:
+      - funchal
+      responses:
+        '200':
+          description: No response body
+  "/api/funchal/events/status/":
+    get:
+      operationId: funchal_events_status_retrieve
+      description: Method to list all Event' Status- Public
+      tags:
+      - funchal
+      responses:
+        '200':
+          description: No response body
+  "/api/funchal/events/types/":
+    get:
+      operationId: funchal_events_types_retrieve
+      description: Method to list all Event' Types - public
+      tags:
+      - funchal
+      responses:
+        '200':
+          description: No response body
+  "/api/geo-analytics/analysis/":
+    get:
+      operationId: geo_analytics_analysis_retrieve
+      description: List all analysis of a client
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: geo_analytics_analysis_create
+      description: Create an analysis
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/geo-analytics/analysis/{id}/":
+    get:
+      operationId: geo_analytics_analysis_retrieve_2
+      description: List an analysis details
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: geo_analytics_analysis_update
+      description: Edit an analysis
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: geo_analytics_analysis_destroy
+      description: Delete an analysis
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/geo-analytics/tourism/heatmap/":
+    get:
+      operationId: geo_analytics_tourism_heatmap_retrieve
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/geo-analytics/tourism/map-view/":
+    get:
+      operationId: geo_analytics_tourism_map_view_retrieve
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/geo-analytics/tourism/overview/":
+    get:
+      operationId: geo_analytics_tourism_overview_retrieve
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/geo-analytics/tourism/presence/":
+    get:
+      operationId: geo_analytics_tourism_presence_retrieve
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/geo-analytics/tourism/visits-by-date/":
+    get:
+      operationId: geo_analytics_tourism_visits_by_date_retrieve
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/geo-analytics/tourism/visits-by-date-range/":
+    get:
+      operationId: geo_analytics_tourism_visits_by_date_range_retrieve
+      tags:
+      - geo-analytics
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/groups/":
+    get:
+      operationId: groups_retrieve
+      description: GET Method to list all groups
+      tags:
+      - groups
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: groups_create
+      description: POST Method to create group
+      tags:
+      - groups
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/groups/{id}/":
+    get:
+      operationId: groups_retrieve_2
+      description: GET Method to show group detail
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - groups
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: groups_update
+      description: PUT Method to edit group
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - groups
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: groups_destroy
+      description: DELETE Method to delete group
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - groups
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/hydrogen/production/cards/":
+    get:
+      operationId: hydrogen_production_cards_retrieve
+      tags:
+      - hydrogen
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/hydrogen/production/table/":
+    get:
+      operationId: hydrogen_production_table_retrieve
+      tags:
+      - hydrogen
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/hydrogen/supply/cards/":
+    get:
+      operationId: hydrogen_supply_cards_retrieve
+      tags:
+      - hydrogen
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/hydrogen/supply/table/":
+    get:
+      operationId: hydrogen_supply_table_retrieve
+      tags:
+      - hydrogen
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/hydrogen/tankage/cards/":
+    get:
+      operationId: hydrogen_tankage_cards_retrieve
+      tags:
+      - hydrogen
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/hydrogen/tankage/table/":
+    get:
+      operationId: hydrogen_tankage_table_retrieve
+      tags:
+      - hydrogen
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/inversor/":
+    get:
+      operationId: inversor_retrieve
+      tags:
+      - inversor
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/inversor/cards/":
+    get:
+      operationId: inversor_cards_retrieve
+      tags:
+      - inversor
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/login/":
+    post:
+      operationId: login_create
+      description: |-
+        POST Method to login user
+        with it's email and password
+      tags:
+      - login
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              "$ref": "#/components/schemas/AuthToken"
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/AuthToken"
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AuthToken"
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AuthToken"
+          description: ''
+  "/api/logout/":
+    post:
+      operationId: logout_create
+      description: |-
+        POST Method that logs out an user by it's auth token
+        The user logs out upon auth token is deleted
+      tags:
+      - logout
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/logs/":
+    get:
+      operationId: logs_retrieve
+      tags:
+      - logs
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/login/":
+    post:
+      operationId: mobile_login_create
+      description: |-
+        POST Method to login user
+        with it's email and password
+      tags:
+      - mobile
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/logout/":
+    post:
+      operationId: mobile_logout_create
+      description: |-
+        POST Method that logs out an user by it's auth token
+        The user logs out upon auth token is deleted
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/occurrences/":
+    get:
+      operationId: mobile_occurrences_retrieve
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: mobile_occurrences_create
+      description: Method to create a new occurrence on mobile (available only for
+        registered users.)
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/occurrences/{id}/":
+    get:
+      operationId: mobile_occurrences_retrieve_2
+      description: Method to show info about one Occurrence
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: mobile_occurrences_update
+      description: Method to edit an occurrence
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/occurrences/status/":
+    get:
+      operationId: mobile_occurrences_status_retrieve
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/occurrences/urgencies/":
+    get:
+      operationId: mobile_occurrences_urgencies_retrieve
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/social-auth/facebook/":
+    post:
+      operationId: mobile_social_auth_facebook_create
+      tags:
+      - mobile
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/social-auth/google/":
+    post:
+      operationId: mobile_social_auth_google_create
+      tags:
+      - mobile
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/users/":
+    post:
+      operationId: mobile_users_create
+      description: Method to create a new mobile user
+      tags:
+      - mobile
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/users/{id}/":
+    get:
+      operationId: mobile_users_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: mobile_users_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: mobile_users_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/mobile/users/recover-password/":
+    post:
+      operationId: mobile_users_recover_password_create
+      description: Method that allows mobile user to recover password.
+      tags:
+      - mobile
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/users/reset-password/":
+    put:
+      operationId: mobile_users_reset_password_update
+      description: |-
+        PUT Method to Change user Password
+        It requires user to know old password
+      tags:
+      - mobile
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/users/set-password/":
+    put:
+      operationId: mobile_users_set_password_update
+      description: |-
+        Method that checks invite token,
+        Sets user password
+        And saves it to db
+      tags:
+      - mobile
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  "/api/mobile/users/validate-token":
+    get:
+      operationId: mobile_users_validate_token_retrieve
+      description: Return user info by token request
+      tags:
+      - mobile
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/":
+    get:
+      operationId: modules_retrieve
+      description: Method to list all clients (avalaible for superadmin)
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: modules_create
+      description: Method to create module (avalaible for superadmin)
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/{id}/":
+    get:
+      operationId: modules_retrieve_2
+      description: Method to show module info (avalaible for superadmin)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_update
+      description: 'Method to edit modules: modules and name (avalaible for superadmin)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_destroy
+      description: 'Method to delete modules: (avalaible for superadmin)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/funchal/events/":
+    get:
+      operationId: modules_funchal_events_retrieve
+      description: Method to list all events
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: modules_funchal_events_create
+      description: Method to create event
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/funchal/events/{id}/":
+    get:
+      operationId: modules_funchal_events_retrieve_2
+      description: Method to show event info
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_funchal_events_update
+      description: Method to edit events
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_funchal_events_destroy
+      description: Method to delete event info
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/funchal/events/categories/":
+    get:
+      operationId: modules_funchal_events_categories_retrieve
+      description: Method to list all Event' Categories
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: modules_funchal_events_categories_create
+      description: Method to create Events' Categories (available for admins and superadmins)
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/funchal/events/categories/{id}/":
+    get:
+      operationId: modules_funchal_events_categories_retrieve_2
+      description: Method to show Category info
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_funchal_events_categories_update
+      description: Method to edit Events' Categories (available for admins and superadmins)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_funchal_events_categories_destroy
+      description: Method to delete Events' Categories (available for admins and superadmins)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/funchal/events/status/":
+    get:
+      operationId: modules_funchal_events_status_retrieve
+      description: Method to list all Event' Status
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: modules_funchal_events_status_create
+      description: Method to create Events' Status (available for admins and superadmins)
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/funchal/events/status/{id}/":
+    get:
+      operationId: modules_funchal_events_status_retrieve_2
+      description: Method to show Status info
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_funchal_events_status_update
+      description: Method to edit Events' Status (available for admins and superadmins)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_funchal_events_status_destroy
+      description: Method to delete all Event' Status (available for admins and superadmins)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/funchal/events/total":
+    get:
+      operationId: modules_funchal_events_total_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/funchal/events/types/":
+    get:
+      operationId: modules_funchal_events_types_retrieve
+      description: Method to list all Event' Types
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: modules_funchal_events_types_create
+      description: Method to create Events' Type (available for admins and superadmins)
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/funchal/events/types/{id}/":
+    get:
+      operationId: modules_funchal_events_types_retrieve_2
+      description: Method to show Type info
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_funchal_events_types_update
+      description: Method to edit Events' Type (available for admins and superadmins)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_funchal_events_types_destroy
+      description: Method to delete all Event' Types (available for admins and superadmins)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/occurrences/":
+    get:
+      operationId: modules_occurrences_retrieve
+      description: Method to list all Occurrences
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: modules_occurrences_create
+      description: Method to create Occurrence
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/occurrences/{id_occurrence}/comments/{id_comment}/":
+    put:
+      operationId: modules_occurrences_comments_update
+      description: Method to edit a comment
+      parameters:
+      - in: path
+        name: id_comment
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      - in: path
+        name: id_occurrence
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_occurrences_comments_destroy
+      description: Method to delete a comment
+      parameters:
+      - in: path
+        name: id_comment
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      - in: path
+        name: id_occurrence
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/occurrences/{id}/":
+    get:
+      operationId: modules_occurrences_retrieve_2
+      description: Method to show Occurrence info
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_occurrences_update
+      description: Method to edit Occurrence
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_occurrences_destroy
+      description: Method to delete Occurrence info
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/occurrences/{id}/comments/":
+    post:
+      operationId: modules_occurrences_comments_create
+      description: Method to create a comment and associate it to an occurrence.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/occurrences/categories/":
+    get:
+      operationId: modules_occurrences_categories_retrieve
+      description: Method to list all Occurrences' Categories
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: modules_occurrences_categories_create
+      description: Method to create Category
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/occurrences/categories/{id}/":
+    get:
+      operationId: modules_occurrences_categories_retrieve_2
+      description: Method to show category detail
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_occurrences_categories_update
+      description: Method to edit category
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_occurrences_categories_destroy
+      description: Method to delete category
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/occurrences/status/":
+    get:
+      operationId: modules_occurrences_status_retrieve
+      description: Method to list all Occurrence' Status
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: modules_occurrences_status_create
+      description: Method to create Status
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_occurrences_status_update
+      description: Method to edit frontend_order
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/occurrences/status/{id}/":
+    get:
+      operationId: modules_occurrences_status_retrieve_2
+      description: Method to show status detail
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_occurrences_status_update_2
+      description: Method to edit status
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_occurrences_status_destroy
+      description: Method to delete status
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/occurrences/total/":
+    get:
+      operationId: modules_occurrences_total_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/occurrences/types/":
+    get:
+      operationId: modules_occurrences_types_retrieve
+      description: Method to list all Occurrence' Types
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/occurrences/urgencies/":
+    get:
+      operationId: modules_occurrences_urgencies_retrieve
+      description: Method to list all Urgency Types
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: modules_occurrences_urgencies_create
+      description: Method to create Urgency Types
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/occurrences/urgencies/{id}/":
+    get:
+      operationId: modules_occurrences_urgencies_retrieve_2
+      description: Method to show Urgency detail
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: modules_occurrences_urgencies_update
+      description: Method to edit urgency
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: modules_occurrences_urgencies_destroy
+      description: Method to delete urgency
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/modules/qart/devices/":
+    get:
+      operationId: modules_qart_devices_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/qart/values/":
+    get:
+      operationId: modules_qart_values_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/":
+    get:
+      operationId: modules_soltrafego_retrieve
+      description: Request to list all bikes
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/bikes/":
+    get:
+      operationId: modules_soltrafego_bikes_retrieve
+      description: Request to list all bikes
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/bikes/heatmap/":
+    get:
+      operationId: modules_soltrafego_bikes_heatmap_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/bikes/station/":
+    get:
+      operationId: modules_soltrafego_bikes_station_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/bikes/station/detail/{station_id}/":
+    get:
+      operationId: modules_soltrafego_bikes_station_detail_retrieve
+      parameters:
+      - in: path
+        name: station_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/bikes/station/stats/cards/":
+    get:
+      operationId: modules_soltrafego_bikes_station_stats_cards_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/bikes/station/stats/charts/{station_external_id}/":
+    get:
+      operationId: modules_soltrafego_bikes_station_stats_charts_retrieve
+      parameters:
+      - in: path
+        name: station_external_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/bikes/stats/cards/":
+    get:
+      operationId: modules_soltrafego_bikes_stats_cards_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/bikes/status/":
+    get:
+      operationId: modules_soltrafego_bikes_status_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/heatmap/":
+    get:
+      operationId: modules_soltrafego_heatmap_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/station/":
+    get:
+      operationId: modules_soltrafego_station_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/station/detail/{station_id}/":
+    get:
+      operationId: modules_soltrafego_station_detail_retrieve
+      parameters:
+      - in: path
+        name: station_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/station/stats/cards/":
+    get:
+      operationId: modules_soltrafego_station_stats_cards_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/station/stats/charts/{station_external_id}/":
+    get:
+      operationId: modules_soltrafego_station_stats_charts_retrieve
+      parameters:
+      - in: path
+        name: station_external_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/stats/cards/":
+    get:
+      operationId: modules_soltrafego_stats_cards_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/soltrafego/status/":
+    get:
+      operationId: modules_soltrafego_status_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/alerts/":
+    get:
+      operationId: modules_waze_alerts_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/alerts/list":
+    get:
+      operationId: modules_waze_alerts_list_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/alerts/stats/cards/":
+    get:
+      operationId: modules_waze_alerts_stats_cards_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/alerts/stats/chart/":
+    get:
+      operationId: modules_waze_alerts_stats_chart_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/alerts/stats/timeseries/":
+    get:
+      operationId: modules_waze_alerts_stats_timeseries_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/alerts/types":
+    get:
+      operationId: modules_waze_alerts_types_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/jams/":
+    get:
+      operationId: modules_waze_jams_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/jams/list":
+    get:
+      operationId: modules_waze_jams_list_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/jams/stats/cards/":
+    get:
+      operationId: modules_waze_jams_stats_cards_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/jams/stats/chart/":
+    get:
+      operationId: modules_waze_jams_stats_chart_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/modules/waze/jams/stats/timeseries/":
+    get:
+      operationId: modules_waze_jams_stats_timeseries_retrieve
+      tags:
+      - modules
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/notifications/":
+    get:
+      operationId: notifications_retrieve
+      description: Method to list all notifications
+      tags:
+      - notifications
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/notifications/{id}/":
+    put:
+      operationId: notifications_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - notifications
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/notifications/new":
+    post:
+      operationId: notifications_new_create
+      tags:
+      - notifications
+      responses:
+        '200':
+          description: No response body
+  "/api/notifications/read/":
+    put:
+      operationId: notifications_read_update
+      tags:
+      - notifications
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/notifications/readall/":
+    put:
+      operationId: notifications_readall_update
+      tags:
+      - notifications
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/partners/":
+    get:
+      operationId: partners_retrieve
+      tags:
+      - partners
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/partners/{id}/":
+    get:
+      operationId: partners_retrieve_2
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - partners
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/rabbitmq/":
+    get:
+      operationId: rabbitmq_retrieve
+      tags:
+      - rabbitmq
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/smart_parking/":
+    get:
+      operationId: smart_parking_retrieve
+      tags:
+      - smart_parking
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/smart_parking/avg_time/":
+    get:
+      operationId: smart_parking_avg_time_retrieve
+      tags:
+      - smart_parking
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/smart_parking/checkAuth":
+    post:
+      operationId: smart_parking_checkAuth_create
+      description: Method to check User Authorization to Perform Request
+      tags:
+      - smart_parking
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/storage/":
+    get:
+      operationId: storage_retrieve
+      tags:
+      - storage
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/storage/cards/":
+    get:
+      operationId: storage_cards_retrieve
+      tags:
+      - storage
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/streams/":
+    get:
+      operationId: streams_retrieve
+      tags:
+      - streams
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/users/":
+    get:
+      operationId: '1'
+      description: Method to return all users
+      summary: Retrieve or create users
+      parameters:
+      - in: query
+        name: client
+        schema:
+          type: string
+        description: Returns all users associated to client *Available only for superadmins.
+      - in: query
+        name: module
+        schema:
+          type: string
+        description: Returns all users with access to module.
+      - in: query
+        name: order_by
+        schema:
+          type: string
+          default: username
+        description: Order by one or multiple fields.
+      - in: query
+        name: status
+        schema:
+          type: string
+        description: Returns all users with status.
+      tags:
+      - users
+      security:
+      - Token
+      responses:
+        '400':
+          content:
+            application/json:
+              schema:
+                error_code: 10005
+                description: Invalid Request
+          description: Invalid Request man
+    post:
+      operationId: users_create
+      description: |-
+        Method to Create New User
+        Note: Only admins are allowed to create
+      tags:
+      - users
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/users/{id}/":
+    get:
+      operationId: users_retrieve
+      description: |-
+        GET Method to read URL user id param
+        And, return one user data
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - users
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: users_update
+      description: PUT Method that allows user editing
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - users
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: users_destroy
+      description: DELETE Method to inactivate user
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - users
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  "/api/users/{id}/invite/":
+    post:
+      operationId: users_invite_create
+      description: Request for new invitation token
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: "^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$"
+        required: true
+      tags:
+      - users
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/users/recover-password/":
+    post:
+      operationId: users_recover_password_create
+      description: Method that allows user's password recover
+      tags:
+      - users
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  "/api/users/reset-password/":
+    put:
+      operationId: users_reset_password_update
+      description: |-
+        PUT Method to Change user Password
+        It requires user to know old password
+      tags:
+      - users
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  "/api/users/set-password/":
+    put:
+      operationId: users_set_password_update
+      description: |-
+        Method that checks invite token,
+        Sets user password
+        And saves it to db
+      tags:
+      - users
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  "/api/users/validate-token":
+    get:
+      operationId: users_validate_token_retrieve
+      description: Return user info by token request
+      tags:
+      - users
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+components:
+  schemas:
+    AuthToken:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        token:
+          type: string
+          readOnly: true
+      required:
+      - password
+      - token
+      - username
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
