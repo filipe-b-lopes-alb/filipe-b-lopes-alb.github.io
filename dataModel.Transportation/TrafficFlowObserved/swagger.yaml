@@ -1,8 +1,4 @@
 ---
-# Copyleft (c) 2022 Contributors to Smart Data Models initiative
-# 
-
-
 components:
   schemas: 
     TrafficFlowObserved: 
