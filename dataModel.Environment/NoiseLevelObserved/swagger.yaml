@@ -10,12 +10,6 @@ components:
         
         - The required fields `dateObservedFrom` and `dateObservedTo` are no longer considered required but the field dateObserved is and this represent the datetime of the reading.
         
-        - `pm5` is an additional field added.
-        
-        - `pm7` is an additional field added.
-        
-        - `particulesMass` is an additional field added.
-        
       allOf:
         - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Environment/NoiseLevelObserved/model.yaml#/NoiseLevelObserved"
 
