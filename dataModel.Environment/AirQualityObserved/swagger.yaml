@@ -5,7 +5,7 @@ components:
       type: object
       description: |
         This entity contains a description of a air quality observation over time. This entity is associated with the vertical segments of  smart cities and related IoT applications.
-        This data model has been partially developed based on the "AirQualityObserved" data model available on the SmartDataModels database which has been developed with mobile operators and the GSMA.
+        This data model has been partially developed based on the "AirQualityObserved" data model available on the SmartDataModels database.
         It is an extension of the data model and introduces the following changes:
         
         - The required field `location` is no longer considered required.
@@ -16,9 +16,6 @@ components:
         
         - `particulesMass` is an additional field added.
         
-        ## Data Model
-        For a full description of the following attributes refer to GSMA [IoT Big Data Harmonised Data Model](https://github.com/GSMADeveloper/NGSI-LD-Entities) AirQualityObserved Entity.
-    
       allOf:
         - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Environment/AirQualityObserved/model.yaml#/AirQualityObserved"
 
@@ -47,7 +44,7 @@ components:
 
 info:
   description: |
-    An extended observation of weather conditions at a certain place and time, based on the SmartDataModel AirQualityObserved
+    An extended observation of air quality conditions at a certain place and time, based on the SmartDataModel AirQualityObserved
   title: AirQualityObserved
   version: "0.0.1"
 

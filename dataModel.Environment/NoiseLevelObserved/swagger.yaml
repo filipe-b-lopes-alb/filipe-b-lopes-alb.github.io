@@ -15,7 +15,7 @@ components:
 
 info:
   description: |
-    An extended observation of weather conditions at a certain place and time, based on the SmartDataModel NoiseLevelObserved
+    An extended observation of noise levels at a certain place and time, based on the SmartDataModel NoiseLevelObserved
   title: NoiseLevelObserved
   version: "0.0.1"
 
