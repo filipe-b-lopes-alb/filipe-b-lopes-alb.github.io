@@ -407,13 +407,6 @@ BikeHireDockingStation:
       type: string
       x-ngsi:
         type: Property
-    dateObserved:
-      description: Last reported time of observation
-      format: date-time
-      type: string
-      x-ngsi:
-        model: https://schema.org/Text
-        type: Property
     openingHours:
       description: Opening hours of the docking station
       type: string

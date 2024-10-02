@@ -1,18 +1,19 @@
 ---
 components:
   schemas: 
-    BikeHireDockingStation:
+    Vehicle:
       type: object
       description: |
-        This entity contains a description of the state of Bicycle docking stations. This entity is associated with the vertical segments of  smart cities and related IoT applications.
-        This data model has been partially developed based on the "BikeHireDockingStation" data model available on the SmartDataModels database.
+        This entity contains a description of the state of Vehicles over time. This entity is associated with the vertical segments of  smart cities and related IoT applications.
+        This data model has been partially developed based on the "Vehicle" data model available on the SmartDataModels database.
         It is an extension of the data model and introduces the following changes:
         
-        - The field `observationDateTime` is changed to dateObserved to keep consistenty acrros different models. The end-goal of this attribute remains the same.
+        - The field `vehicleType`, `location` and `category` are no longer required since they don't add additional required information in our system.
+        - The field `observationDateTime` is changed to `dateObserved` and is now required.
               
         
       allOf:
-        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Transportation/BikeHireDockingStation/model.yaml#/BikeHireDockingStation"
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Transportation/Vehicle/model.yaml#/Vehicle"
 
       properties:
         dateObserved:
@@ -22,11 +23,13 @@ components:
           x-ngsi:
             model: https://schema.org/DateTime
             type: Property
+      required:
+        - dateObserved
 
 info:
   description: |
-    An extended observation of the state of bicyle docking stations at a certain place and time, based on the SmartDataModel BikeHireDockingStation
-  title: BikeHireDockingStation
+    An extended observation of the state of Vehicles at a certain place and time, based on the SmartDataModel Vehicle
+  title: Vehicle
   version: "0.0.1"
 
 openapi: "3.0.0"
@@ -42,7 +45,7 @@ paths:
           required: true
           schema: 
             enum: 
-              - BikeHireDockingStation
+              - Vehicle
             type: string
       responses: 
         "200":
@@ -54,12 +57,12 @@ paths:
                   summary: "Key-Values Pairs"
                   value: 
                     - 
-                      $ref: "https://smart-data-models.github.io/dataModel.Transportation/BikeHireDockingStation/examples/example.json"
+                      $ref: "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/examples/example.json"
                 normalized: 
                   summary: "Normalized NGSI-LD"
                   value: 
                     - 
-                      $ref: "https://smart-data-models.github.io/dataModel.Transportation/BikeHireDockingStation/examples/example-normalized.jsonld"
+                      $ref: "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/examples/example-normalized.jsonld"
       tags: 
         - ngsi-ld
 
