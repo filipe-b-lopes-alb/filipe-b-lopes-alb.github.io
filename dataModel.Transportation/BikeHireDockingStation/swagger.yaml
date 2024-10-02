@@ -1,0 +1,68 @@
+---
+components:
+  schemas: 
+    BikeHireDockingStation:
+      type: object
+      description: |
+        This entity contains a description of the state of Bicycle docking stations. This entity is associated with the vertical segments of  smart cities and related IoT applications.
+        This data model has been partially developed based on the "BikeHireDockingStation" data model available on the SmartDataModels database.
+        It is an extension of the data model and introduces the following changes:
+        
+        - The field `observationDateTime` is changed to dateObserved to keep consistenty acrros different models. The end-goal of this attribute remains the same.
+              
+        
+      allOf:
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Transportation/BikeHireDockingStation/model.yaml#/BikeHireDockingStation"
+
+      properties:
+        dateObserved:
+          description: Entity creation timestamp. This will usually be allocated by the storage platform.
+          format: date-time
+          type: string
+          x-ngsi:
+            type: Property
+
+info:
+  description: |
+    An extended observation of the state of bicyle docking stations at a certain place and time, based on the SmartDataModel BikeHireDockingStation
+  title: BikeHireDockingStation
+  version: "0.0.1"
+
+openapi: "3.0.0"
+
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      description: "Retrieve a set of entities which matches a specific query from an NGSI-LD system."
+      parameters: 
+        - 
+          in: query
+          name: type
+          required: true
+          schema: 
+            enum: 
+              - BikeHireDockingStation
+            type: string
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/ld+json: 
+              examples: 
+                keyvalues: 
+                  summary: "Key-Values Pairs"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.Transportation/BikeHireDockingStation/examples/example.json"
+                normalized: 
+                  summary: "Normalized NGSI-LD"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.Transportation/BikeHireDockingStation/examples/example-normalized.jsonld"
+      tags: 
+        - ngsi-ld
+
+tags: 
+  - 
+    description: "NGSI-LD Linked-data Format"
+    name: ngsi-ld
