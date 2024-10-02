@@ -1,0 +1,94 @@
+---
+components:
+  schemas: 
+    WeatherObserved:
+      type: object
+      description: |
+        This entity contains a description of a weather observation over time. This entity is associated with the vertical segments of  smart cities and related IoT applications.
+        This data model has been partially developed based on the "WeatherObserved" data model available on the SmartDataModels database which has been developed with mobile operators and the GSMA.
+        It is an extension of the data model and introduces the following changes:
+        
+        - The required field `location` is no longer considered required.
+        
+        - `precipitationCounter` is an additional field added.
+        
+        - `tempInt` is an additional field added.
+        
+        - `humInt` is an additional field added.
+        
+        ## Data Model
+        For a full description of the following attributes refer to GSMA [IoT Big Data Harmonised Data Model](https://github.com/GSMADeveloper/NGSI-LD-Entities) WeatherObserved Entity.
+    
+      allOf:
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Weather/WeatherObserved/model.yaml#/WeatherObserved"
+      required:
+        - type
+        - id
+        # Removed 'location' from the required fields
+      properties:
+        precipitationCounter:
+          x-ngsi:
+            model: 'https://schema.org/Number'
+            type: "Property"
+          type: number
+          format: float
+          description: ""
+        tempInt:
+          x-ngsi:
+            model: 'https://schema.org/Number'
+            type: "Property"
+          type: number
+          format: float
+          description: ""
+        humInt:
+          x-ngsi:
+            model: 'https://schema.org/Number'
+            type: "Property"
+          type: number
+          format: float
+          description: ""
+
+info:
+  description: |
+    An extended observation of weather conditions at a certain place and time, based on the SmartDataModel WeatherObserved
+  title: WeatherObserved
+  version: "0.0.1"
+
+openapi: "3.0.0"
+
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      description: "Retrieve a set of entities which matches a specific query from an NGSI-LD system."
+      parameters: 
+        - 
+          in: query
+          name: type
+          required: true
+          schema: 
+            enum: 
+              - WeatherObservedExtended
+            type: string
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/ld+json: 
+              examples: 
+                keyvalues: 
+                  summary: "Key-Values Pairs"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/examples/example.json"
+                normalized: 
+                  summary: "Normalized NGSI-LD"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/examples/example-normalized.jsonld"
+      tags: 
+        - ngsi-ld
+
+tags: 
+  - 
+    description: "NGSI-LD Linked-data Format"
+    name: ngsi-ld
