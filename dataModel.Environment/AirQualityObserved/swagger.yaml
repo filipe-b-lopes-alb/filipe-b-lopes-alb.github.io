@@ -1,43 +1,43 @@
 ---
 components:
   schemas: 
-    WeatherObserved:
+    AirQualityObserved:
       type: object
       description: |
-        This entity contains a description of a weather observation over time. This entity is associated with the vertical segments of  smart cities and related IoT applications.
-        This data model has been partially developed based on the "WeatherObserved" data model available on the SmartDataModels database which has been developed with mobile operators and the GSMA.
+        This entity contains a description of a air quality observation over time. This entity is associated with the vertical segments of  smart cities and related IoT applications.
+        This data model has been partially developed based on the "AirQualityObserved" data model available on the SmartDataModels database which has been developed with mobile operators and the GSMA.
         It is an extension of the data model and introduces the following changes:
         
         - The required field `location` is no longer considered required.
         
-        - `precipitationCounter` is an additional field added.
+        - `pm5` is an additional field added.
         
-        - `tempInt` is an additional field added.
+        - `pm7` is an additional field added.
         
-        - `humInt` is an additional field added.
+        - `particulesMass` is an additional field added.
         
         ## Data Model
-        For a full description of the following attributes refer to GSMA [IoT Big Data Harmonised Data Model](https://github.com/GSMADeveloper/NGSI-LD-Entities) WeatherObserved Entity.
+        For a full description of the following attributes refer to GSMA [IoT Big Data Harmonised Data Model](https://github.com/GSMADeveloper/NGSI-LD-Entities) AirQualityObserved Entity.
     
       allOf:
-        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Weather/WeatherObserved/model.yaml#/WeatherObserved"
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Environment/AirQualityObserved/model.yaml#/AirQualityObserved"
 
       properties:
-        precipitationCounter:
+        pm7:
           x-ngsi:
             model: 'https://schema.org/Number'
             type: "Property"
           type: number
           format: float
-          description: ""
-        tempInt:
+          description: "Particulate matter 7.0 micrometers or less in diameter"
+        pm5:
           x-ngsi:
             model: 'https://schema.org/Number'
             type: "Property"
           type: number
           format: float
-          description: ""
-        humInt:
+          description: "Particulate matter 5.0 micrometers or less in diameter"
+        particulesMass:
           x-ngsi:
             model: 'https://schema.org/Number'
             type: "Property"
@@ -47,8 +47,8 @@ components:
 
 info:
   description: |
-    An extended observation of weather conditions at a certain place and time, based on the SmartDataModel WeatherObserved
-  title: WeatherObserved
+    An extended observation of weather conditions at a certain place and time, based on the SmartDataModel AirQualityObserved
+  title: AirQualityObserved
   version: "0.0.1"
 
 openapi: "3.0.0"
@@ -64,7 +64,7 @@ paths:
           required: true
           schema: 
             enum: 
-              - WeatherObservedExtended
+              - AirQualityObserved
             type: string
       responses: 
         "200":
@@ -76,12 +76,12 @@ paths:
                   summary: "Key-Values Pairs"
                   value: 
                     - 
-                      $ref: "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/examples/example.json"
+                      $ref: "https://smart-data-models.github.io/dataModel.Weather/AirQualityObserved/examples/example.json"
                 normalized: 
                   summary: "Normalized NGSI-LD"
                   value: 
                     - 
-                      $ref: "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/examples/example-normalized.jsonld"
+                      $ref: "https://smart-data-models.github.io/dataModel.Weather/AirQualityObserved/examples/example-normalized.jsonld"
       tags: 
         - ngsi-ld
 
