@@ -8,7 +8,7 @@ components:
         This data model has been partially developed based on the "BikeHireDockingStation" data model available on the SmartDataModels database.
         It is an extension of the data model and introduces the following changes:
         
-        - The field `observationDateTime` is changed to dateObserved to keep consistenty acrros different models. The end-goal of this attribute remains the same.
+        - The field `observationDateTime` is changed to dateObserved and is required to keep consistenty across different models. The end-goal of this attribute remains the same.
               
         
       allOf:
@@ -22,6 +22,8 @@ components:
           x-ngsi:
             model: https://schema.org/DateTime
             type: Property
+      required:
+        - dateObserved
 
 info:
   description: |
