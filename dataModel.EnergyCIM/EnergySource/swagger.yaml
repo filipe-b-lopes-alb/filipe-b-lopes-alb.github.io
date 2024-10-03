@@ -1,11 +1,11 @@
 ---
 components:
   schemas: 
-    EnergyConsumer:
+    EnergySource:
       type: object
       description: |
-        This entity contains a description of energy consumption over time. This entity is associated with the vertical segments of  smart cities and related IoT applications.
-        This data model has been partially developed based on the "EnergyConsumer" data model available on the SmartDataModels database that has been extended based on the CIM Energy modules 
+        This entity contains a description of energy produced over time. This entity is associated with the vertical segments of  smart cities and related IoT applications.
+        This data model has been partially developed based on the "EnergySource" data model available on the SmartDataModels database that has been extended based on the CIM Energy modules 
         to comply with NGSI requirements..
         It is an extension of the data model and introduces the following changes:
         
@@ -13,7 +13,7 @@ components:
         - id, type and dateObserved are now required fields.
         
       allOf:
-        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.EnergyCIM/EnergyConsumer/model.yaml#/EnergyConsumer"
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.EnergyCIM/EnergySource/model.yaml#/EnergySource"
 
       properties:
         dateObserved:
@@ -31,8 +31,8 @@ components:
 
 info:
   description: |
-    An extended observation of energy consumed at a certain time, based on the SmartDataModel EnergyConsumer.
-  title: EnergyConsumer
+    An extended observation of energy produced at a certain time, based on the SmartDataModel EnergySource.
+  title: EnergySource
   version: "0.0.1"
 
 openapi: "3.0.0"
@@ -48,7 +48,7 @@ paths:
           required: true
           schema: 
             enum: 
-              - EnergyConsumer
+              - EnergySource
             type: string
       responses: 
         "200":
