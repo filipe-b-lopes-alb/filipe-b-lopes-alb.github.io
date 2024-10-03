@@ -1,12 +1,4 @@
 TrafficFlowObserved:
-  description: |
-    This entity contains a description of a TrafficFlowObservation. 
-    This data model is an extension of the smart data model "TrafficFlowObservation" ("https://github.com/smart-data-models/dataModel.Transportation/tree/master/TrafficFlowObserved")
-    Changes to the previous implemented model are the addition of the following properties:
-    - endNode
-    - delay
-    - level
-    - length
   properties:
     address:
       description: The mailing address

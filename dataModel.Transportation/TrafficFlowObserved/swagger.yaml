@@ -2,6 +2,17 @@
 components:
   schemas: 
     TrafficFlowObserved: 
+      type: object
+      description: |
+        This entity contains a description of a TrafficFlowObservation. 
+        This data model is an extension of the smart data model "TrafficFlowObservation" ("https://github.com/smart-data-models/dataModel.Transportation/tree/master/TrafficFlowObserved")
+        Changes to the previous implemented model are the addition of the following properties:
+        - endNode
+        - delay
+        - level
+        - length
+        - refAlert
+        
       $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Transportation/TrafficFlowObserved/model.yaml#/TrafficFlowObserved"
 
     properties:
@@ -28,6 +39,12 @@ components:
         type: number
         x-ngsi:
           model: https://schema.org/Number
+          type: Property
+      refAlert:
+        description: "The Alert the jam is associated to."
+        type: string
+        x-ngsi:
+          model: https://schema.org/Text
           type: Property
 
 info:
