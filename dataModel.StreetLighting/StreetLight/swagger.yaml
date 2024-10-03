@@ -1,0 +1,61 @@
+---
+components:
+  schemas: 
+    StreetLight:
+      type: object
+      description: |
+        This entity contains a description of energy consumed by StreetLights over time. This entity is associated with the vertical segments of  smart cities and related IoT applications.
+        This data model has been partially developed based on the "StreetLight" data model available on the SmartDataModels database.
+        The Smart Data model has been partially changed with the following changes:
+
+        - The requireds fields `location`, `status` are no longer considered required.
+        
+        - The field `observationDateTime` has been changed to `dateObserved` to keep consistency across models.
+        
+        - The field `dateObserved` is required.
+
+      allOf:
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.StreetLight/StreetLight/model.yaml#/StreetLight"
+
+      properties:
+        dateObserved:
+          description: Last reported time of observation.
+          format: date-time
+          type: string
+          x-ngsi:
+            model: https://schema.org/Text
+            type: Property
+      required:
+        - dateObserved
+
+info:
+  description: |
+    An extended observation of power consumptions of street lights at a certain time, based on the SmartDataModel StreetLight
+  title: StreetLight
+  version: "0.0.1"
+
+openapi: "3.0.0"
+
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      description: "Retrieve a set of entities which matches a specific query from an NGSI-LD system."
+      parameters: 
+        - 
+          in: query
+          name: type
+          required: true
+          schema: 
+            enum: 
+              - WeatherObservedExtended
+            type: string
+      responses: 
+        "200":
+          description: OK
+      tags: 
+        - ngsi-ld
+
+tags: 
+  - 
+    description: "NGSI-LD Linked-data Format"
+    name: ngsi-ld
