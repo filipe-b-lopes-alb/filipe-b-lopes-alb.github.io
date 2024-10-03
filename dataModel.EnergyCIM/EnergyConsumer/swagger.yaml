@@ -11,6 +11,14 @@ components:
         
         - Added field `dateObserved` to register the observation time of the entity.
         - id, type and dateObserved are now required fields.
+        - The following fields have been added to accomodate our requirements:
+          - `pStatus`
+          - `pTransformationLosses`
+          - `rStatus`
+          - `rTransformationLosses`
+          - `capacitiveR`
+          - `capacitiveRStatus`,
+          - `capacitiveRTransformationLosses`
         
       allOf:
         - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.EnergyCIM/EnergyConsumer/model.yaml#/EnergyConsumer"
@@ -21,6 +29,55 @@ components:
           format: date-time
           type: string
           x-ngsi:
+            type: Property
+        pStatus:
+          description: ''
+          type: number
+          format: float
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        pTransformationLosses:
+          description: ''
+          type: number
+          format: float
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        rStatus:
+          description: ''
+          type: number
+          format: float
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        rTransformationLosses:
+          description: ''
+          type: number
+          format: float
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        capacitiveR:
+          description: ''
+          type: number
+          format: float
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        capacitiveRStatus:
+          description: ''
+          type: number
+          format: float
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        capacitiveRTransformationLosses:
+          description: ''
+          type: number
+          format: float
+          x-ngsi:
+            model: https://schema.org/Number
             type: Property
 
       required:
