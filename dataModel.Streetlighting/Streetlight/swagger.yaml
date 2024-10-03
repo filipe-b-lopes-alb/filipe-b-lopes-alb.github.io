@@ -1,0 +1,85 @@
+---
+components:
+  schemas: 
+    Streetlight: 
+      type: object
+      description: |
+        This entity contains a description of the power consumption of street lights. 
+        This data model is an extension of the smart data model "Streetlight".
+        The following changes have been made to meet some of our requirements:
+        - required fields  `location` and `status` are no longer required.
+        - `observationDateTime` field has been changed to `dateObserved` to keep consistency between models.
+
+      
+      allOf:
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Streetlighting/Streetlight/model.yaml#/Streetlight"
+
+      properties:
+        endNode:
+          description: "Street/Local where the traffic observation has ended"
+          type: string
+          x-ngsi:
+            model: https://schema.org/Text
+            type: Property
+        delay:
+          description: "Time delay in minutes the traffic has been generating"
+          type: number
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        level:
+          description: "Level of severity of the traffic congestion"
+          type: number
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        length:
+          description: "Length of the traffic registered"
+          type: number
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        refAlert:
+          description: "The Alert the traffic observation is associated to."
+          type: string
+          format: uri
+          x-ngsi:
+            model: https://schema.org/Text
+            type: Property
+        roadType:
+          description: "A specific type of road mapped to a number."
+          type: number
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+
+info:
+  description:  |
+    An observation of traffic flow conditions at a certain place and time.
+  title: Streetlight
+  version: "0.0.1"
+openapi: "3.0.0"
+
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      description: "Retrieve a set of entities which matches a specific query from an NGSI-LD system"
+      parameters: 
+        - 
+          in: query
+          name: type
+          required: true
+          schema: 
+            enum: 
+              - Streetlight
+            type: string
+      responses: 
+        ? "200"
+        : 
+          description: OK
+      tags: 
+        - ngsi-ld
+tags: 
+  - 
+    description: "NGSI-LD Linked-data Format"
+    name: ngsi-ld
