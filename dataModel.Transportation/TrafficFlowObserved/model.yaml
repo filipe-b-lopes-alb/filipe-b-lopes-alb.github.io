@@ -465,30 +465,6 @@ TrafficFlowObserved:
       x-ngsi:
         model: https://schema.org/Text
         type: Property
-    endNode:
-      description: "Street/Local where the traffic observation has ended"
-      type: string
-      x-ngsi:
-        model: https://schema.org/Text
-        type: Property
-    delay:
-      description: "Time delay in minutes the traffic has been generating"
-      type: number
-      x-ngsi:
-        model: https://schema.org/Number
-        type: Property
-    level:
-      description: "Level of severity of the traffic congestion"
-      type: number
-      x-ngsi:
-        model: https://schema.org/Number
-        type: Property
-    length:
-      description: "Length of the traffic registered"
-      type: number
-      x-ngsi:
-        model: https://schema.org/Number
-        type: Property
 
   required:
     - id
