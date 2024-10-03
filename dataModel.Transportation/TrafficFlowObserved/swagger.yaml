@@ -12,6 +12,7 @@ components:
         - level
         - length
         - refAlert
+        - roadType
       
       allOf:
         - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Transportation/TrafficFlowObserved/model.yaml#/TrafficFlowObserved"
@@ -47,6 +48,13 @@ components:
           format: uri
           x-ngsi:
             model: https://schema.org/Text
+            type: Property
+        roadType:
+          description: "A specific type of road mapped to a number."
+          type: number
+          format: uri
+          x-ngsi:
+            model: https://schema.org/Number
             type: Property
 
 info:
