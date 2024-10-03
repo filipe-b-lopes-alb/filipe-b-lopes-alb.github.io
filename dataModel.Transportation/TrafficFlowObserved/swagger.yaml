@@ -12,40 +12,42 @@ components:
         - level
         - length
         - refAlert
-        
-      $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Transportation/TrafficFlowObserved/model.yaml#/TrafficFlowObserved"
+      
+      allOf:
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Transportation/TrafficFlowObserved/model.yaml#/TrafficFlowObserved"
 
-    properties:
-      endNode:
-        description: "Street/Local where the traffic observation has ended"
-        type: string
-        x-ngsi:
-          model: https://schema.org/Text
-          type: Property
-      delay:
-        description: "Time delay in minutes the traffic has been generating"
-        type: number
-        x-ngsi:
-          model: https://schema.org/Number
-          type: Property
-      level:
-        description: "Level of severity of the traffic congestion"
-        type: number
-        x-ngsi:
-          model: https://schema.org/Number
-          type: Property
-      length:
-        description: "Length of the traffic registered"
-        type: number
-        x-ngsi:
-          model: https://schema.org/Number
-          type: Property
-      refAlert:
-        description: "The Alert the jam is associated to."
-        type: string
-        x-ngsi:
-          model: https://schema.org/Text
-          type: Property
+      properties:
+        endNode:
+          description: "Street/Local where the traffic observation has ended"
+          type: string
+          x-ngsi:
+            model: https://schema.org/Text
+            type: Property
+        delay:
+          description: "Time delay in minutes the traffic has been generating"
+          type: number
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        level:
+          description: "Level of severity of the traffic congestion"
+          type: number
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        length:
+          description: "Length of the traffic registered"
+          type: number
+          x-ngsi:
+            model: https://schema.org/Number
+            type: Property
+        refAlert:
+          description: "The Alert the traffic observation is associated to."
+          type: string
+          format: uri
+          x-ngsi:
+            model: https://schema.org/Text
+            type: Property
 
 info:
   description:  |
