@@ -1,0 +1,75 @@
+---
+components:
+  schemas: 
+    EnergyConsumer:
+      type: object
+      description: |
+        This entity contains a description of noise level observation over time. This entity is associated with the vertical segments of  smart cities and related IoT applications.
+        This data model has been partially developed based on the "EnergyConsumer" data model available on the SmartDataModels database that has been extended based on the CIM Energy modules 
+        to comply with NGSI requirements..
+        It is an extension of the data model and introduces the following changes:
+        
+        - Added field `dateObserved` to register the observation time of the entity.
+        - id, type and dateObserved are now required fields.
+        
+      allOf:
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.EnergyCIM/EnergyConsumer/model.yaml#/EnergyConsumer"
+
+      properties:
+        dateObserved:
+          description: Observation time of the entity.
+          format: date-time
+          type: string
+          x-ngsi:
+            type: Property
+
+      required:
+        - id
+        - type
+        -dateObserved
+
+
+info:
+  description: |
+    An extended observation of energy consumed at a certain time, based on the SmartDataModel EnergyConsumer.
+  title: EnergyConsumer
+  version: "0.0.1"
+
+openapi: "3.0.0"
+
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      description: "Retrieve a set of entities which matches a specific query from an NGSI-LD system."
+      parameters: 
+        - 
+          in: query
+          name: type
+          required: true
+          schema: 
+            enum: 
+              - EnergyConsumer
+            type: string
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/ld+json: 
+              examples: 
+                keyvalues: 
+                  summary: "Key-Values Pairs"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.EnergyCIM/EnergyConsumer/examples/example.json"
+                normalized: 
+                  summary: "Normalized NGSI-LD"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.EnergyCIM/EnergyConsumer/examples/example-normalized.jsonld"
+      tags: 
+        - ngsi-ld
+
+tags: 
+  - 
+    description: "NGSI-LD Linked-data Format"
+    name: ngsi-ld
