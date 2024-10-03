@@ -1,0 +1,31 @@
+{
+    "@context": {
+        "type": "@type",
+        "id": "@id",
+        "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
+        "fiware": "https://uri.fiware.org/ns/data-models#",
+        "schema": "https://schema.org/",
+        "EnergyConsumer": "fiware:EnergyConsumer",
+        "LoadDynamics": "fiware:LoadDynamics",
+        "LoadResponse": "fiware:LoadResponse",
+        "address": "fiware:address",
+        "alternateName": "fiware:alternateName",
+        "areaServed": "fiware:areaServed",
+        "dataProvider": "fiware:dataProvider",
+        "dateCreated": "fiware:dateCreated",
+        "dateModified": "fiware:dateModified",
+        "dateObserved": "fiware:dateObserved",
+        "description": "fiware:description",
+        "location": "fiware:location",
+        "name": "fiware:name",
+        "owner": "fiware:owner",
+        "p": "fiware:p",
+        "pfixed": "fiware:pfixed",
+        "pfixedPct": "fiware:pfixedPct",
+        "q": "fiware:q",
+        "qfixed": "fiware:qfixed",
+        "qfixedPct": "fiware:qfixedPct",
+        "seeAlso": "fiware:seeAlso",
+        "source": "fiware:source"
+    }
+}

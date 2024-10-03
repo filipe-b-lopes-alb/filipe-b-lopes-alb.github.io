@@ -53,19 +53,6 @@ paths:
       responses: 
         "200":
           description: OK
-          content: 
-            application/ld+json: 
-              examples: 
-                keyvalues: 
-                  summary: "Key-Values Pairs"
-                  value: 
-                    - 
-                      $ref: "https://smart-data-models.github.io/dataModel.EnergyCIM/EnergyConsumer/examples/example.json"
-                normalized: 
-                  summary: "Normalized NGSI-LD"
-                  value: 
-                    - 
-                      $ref: "https://smart-data-models.github.io/dataModel.EnergyCIM/EnergyConsumer/examples/example-normalized.jsonld"
       tags: 
         - ngsi-ld
 
