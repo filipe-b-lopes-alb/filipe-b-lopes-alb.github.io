@@ -52,7 +52,6 @@ components:
         roadType:
           description: "A specific type of road mapped to a number."
           type: number
-          format: uri
           x-ngsi:
             model: https://schema.org/Number
             type: Property
