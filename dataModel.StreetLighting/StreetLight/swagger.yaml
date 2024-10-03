@@ -15,7 +15,7 @@ components:
         - The field `dateObserved` is required.
 
       allOf:
-        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.StreetLight/StreetLight/model.yaml#/StreetLight"
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.StreetLighting/StreetLight/model.yaml#/StreetLight"
 
       properties:
         dateObserved:
@@ -47,7 +47,7 @@ paths:
           required: true
           schema: 
             enum: 
-              - WeatherObservedExtended
+              - Streetlight
             type: string
       responses: 
         "200":
