@@ -26,6 +26,20 @@
         "qfixed": "fiware:qfixed",
         "qfixedPct": "fiware:qfixedPct",
         "seeAlso": "fiware:seeAlso",
-        "source": "fiware:source"
+        "source": "fiware:source",
+        "EnergySchedulingType": "fiware:EnergySchedulingType",
+        "EnergySource": "fiware:EnergySource",
+        "WindTurbineType3or4Dynamics": "fiware:WindTurbineType3or4Dynamics",
+        "activePower": "fiware:activePower",
+        "nominalVoltage": "fiware:nominalVoltage",
+        "r": "fiware:r",
+        "r0": "fiware:r0",
+        "reactivePower": "fiware:reactivePower",
+        "rn": "fiware:rn",
+        "voltageAngle": "fiware:voltageAngle",
+        "voltageMagnitude": "fiware:voltageMagnitude",
+        "x": "fiware:x",
+        "x0": "fiware:x0",
+        "xn": "fiware:xn"
     }
 }
