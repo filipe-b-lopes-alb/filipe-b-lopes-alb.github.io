@@ -15,47 +15,18 @@ components:
         - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Streetlighting/Streetlight/model.yaml#/Streetlight"
 
       properties:
-        endNode:
-          description: "Street/Local where the traffic observation has ended"
+        dateObserved:
+          description: "Observation time."
           type: string
+          format: date-time
           x-ngsi:
             model: https://schema.org/Text
             type: Property
-        delay:
-          description: "Time delay in minutes the traffic has been generating"
-          type: number
-          x-ngsi:
-            model: https://schema.org/Number
-            type: Property
-        level:
-          description: "Level of severity of the traffic congestion"
-          type: number
-          x-ngsi:
-            model: https://schema.org/Number
-            type: Property
-        length:
-          description: "Length of the traffic registered"
-          type: number
-          x-ngsi:
-            model: https://schema.org/Number
-            type: Property
-        refAlert:
-          description: "The Alert the traffic observation is associated to."
-          type: string
-          format: uri
-          x-ngsi:
-            model: https://schema.org/Text
-            type: Property
-        roadType:
-          description: "A specific type of road mapped to a number."
-          type: number
-          x-ngsi:
-            model: https://schema.org/Number
-            type: Property
-
+      required:
+        - dateObserved
 info:
   description:  |
-    An observation of traffic flow conditions at a certain place and time.
+    An observation of power consumption of street lights at a certain time.
   title: Streetlight
   version: "0.0.1"
 openapi: "3.0.0"
