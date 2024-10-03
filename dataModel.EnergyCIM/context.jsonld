@@ -47,6 +47,6 @@
         "pStatus": "fiware:pStatus",
         "pTransformationLosses": "fiware:pTransformationLosses",
         "rStatus": "fiware:rStatus",
-        "rTransformationLosses": "fiware:rTransformationLosses",
+        "rTransformationLosses": "fiware:rTransformationLosses"
     }
 }
