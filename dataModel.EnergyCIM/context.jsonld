@@ -40,6 +40,13 @@
         "voltageMagnitude": "fiware:voltageMagnitude",
         "x": "fiware:x",
         "x0": "fiware:x0",
-        "xn": "fiware:xn"
+        "xn": "fiware:xn",
+        "capacitiveR": "fiware:capacitiveR",
+        "capacitiveRStatus": "fiware:capacitiveRStatus",
+        "capacitiveRTransformationLosses": "fiware:capacitiveRTransformationLosses",
+        "pStatus": "fiware:pStatus",
+        "pTransformationLosses": "fiware:pTransformationLosses",
+        "rStatus": "fiware:rStatus",
+        "rTransformationLosses": "fiware:rTransformationLosses",
     }
 }
