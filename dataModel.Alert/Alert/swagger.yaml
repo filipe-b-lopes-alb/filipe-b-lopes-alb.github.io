@@ -1,0 +1,73 @@
+---
+components:
+  schemas: 
+    Alert:
+      type: object
+      description: |
+        This entity contains a description of an alert reported by a device or user at a certain time.
+        This data model has been partially developed based on the "Alert" data model available on the SmartDataModels database.
+        It is an extension of the data model and introduces the following changes:
+        
+        - The required fields `alertSource`, `category` are no longer considered required.
+        
+        - The field `dateIssued` is changed to `dateObserved` to keep consistency with other models.
+
+        - The field "subCategory" contains an additional value in the enum "accident" that is considered a general accident
+      
+
+      allOf:
+        - $ref: "https://filipe-b-lopes-alb.github.io/dataModel.Alert/Alert/model.yaml#/Alert"
+
+      properties:
+        dateObserved:
+          description: The date and time the item was issued in ISO8601 UTC format
+          format: date-time
+          type: string
+          x-ngsi:
+            model: https://schema.org/DateTime
+            type: Property
+
+info:
+  description: |
+    An extended observation of alerts issued at a certain time on a given location.
+  title: Alert
+  version: "0.0.1"
+
+openapi: "3.0.0"
+
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      description: "Retrieve a set of entities which matches a specific query from an NGSI-LD system."
+      parameters: 
+        - 
+          in: query
+          name: type
+          required: true
+          schema: 
+            enum: 
+              - WeatherObservedExtended
+            type: string
+      responses: 
+        "200":
+          description: OK
+          content: 
+            application/ld+json: 
+              examples: 
+                keyvalues: 
+                  summary: "Key-Values Pairs"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.Alert/Alert/examples/example.json"
+                normalized: 
+                  summary: "Normalized NGSI-LD"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.Alert/Alert/examples/example-normalized.jsonld"
+      tags: 
+        - ngsi-ld
+
+tags: 
+  - 
+    description: "NGSI-LD Linked-data Format"
+    name: ngsi-ld
