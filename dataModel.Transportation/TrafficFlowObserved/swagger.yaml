@@ -48,7 +48,7 @@ components:
           format: uri
           x-ngsi:
             model: https://schema.org/Text
-            type: RelationShip
+            type: Relationship
         roadType:
           description: "A specific type of road mapped to a number."
           type: number
