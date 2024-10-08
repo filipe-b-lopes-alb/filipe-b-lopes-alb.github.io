@@ -43,11 +43,22 @@ components:
             model: https://schema.org/Number
             type: Property
         refAlert:
-          description: "The Alert the traffic observation is associated to."
-          type: string
-          format: uri
+          anyOf:
+            - description: Identifier format of any NGSI entity
+              maxLength: 256
+              minLength: 1
+              pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+              type: string
+              x-ngsi:
+                type: Property
+            - description: Identifier format of any NGSI entity
+              format: uri
+              type: string
+              x-ngsi:
+                type: Property
+          description: A reference to an alert associated to this observation
           x-ngsi:
-            model: https://schema.org/Text
+            model: https://schema.org/URL
             type: Relationship
         roadType:
           description: "A specific type of road mapped to a number."
